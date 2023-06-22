@@ -1,0 +1,13 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: testlabel1
+  labels:
+    env: develop
+    name: daman
+    company: edureka
+spec:
+  containers:
+    - name: c00
+      image: ubuntu
+      command: ["/bin/bash","-c","while true; do echo learning labels;sleep 2; done"]
