@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: damanpod13
+  annotations:
+   description: This pod demonstrates enviornment variable
+spec:
+  containers:
+    - name: c00
+      image: ubuntu
+      command: ["/bin/bash", "-c","while true;do echo hello;sleep 5 ;done "]
+      env:
+        - name: state
+          value: production
