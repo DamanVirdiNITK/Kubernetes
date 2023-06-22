@@ -4,6 +4,7 @@
 3. Set enviornment variables for container -> enviornmentVariable.yml </br>
 4. Set labels to the pods -> label.yml </br>
 5. Set Node Selector for pods -> NodeSelector.yml</br>
+6. Create Replication Controller -> replicationController.yml</br>
 
 ## To create the container, service, namespace etc via yaml file
 kubectl apply -f pod.yml </br>
@@ -56,7 +57,15 @@ OP: production</br>
 2. To label the nodes</br>
     kubectl label nodes <node-name <ip-<ipof node>>> labelKey = labelValue
 
-## 
+## Replication Controller
+1. To see all the replication controllers</br>
+   kubectl get rc</br>
+2. delete one pod (but new pod will be created again in its place)</br>
+   kubectl delete pod <podname></br>
+3. To scale up/ down no of replicas
+   kubectl scale --replicas = 10/1 rc -l labelkey=labelvalue
+4. To delete the replication controller
+   kubectl delete -f replicationController.yml
 
 
 
