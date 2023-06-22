@@ -1,0 +1,18 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: my
+spec:
+  replicas: 5
+  selector:
+    myname: daman
+  template: 
+    metadata:
+      name: sourcepod
+      labels: 
+        myname: daman
+    spec: 
+      containers:
+        - name: c00
+          image: ubuntu
+          command: ["/bin/bash","-c","while true;do echo Hi;sleep 2;done"]
