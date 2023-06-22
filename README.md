@@ -62,11 +62,20 @@ OP: production</br>
    kubectl get rc</br>
 2. delete one pod (but new pod will be created again in its place)</br>
    kubectl delete pod <podname></br>
-3. To scale up/ down no of replicas
-   kubectl scale --replicas = 10/1 rc -l labelkey=labelvalue
-4. To delete the replication controller
-   kubectl delete -f replicationController.yml
+3. To scale up/ down no of replicas</br>
+   kubectl scale --replicas = 10/1 rc -l labelkey=labelvalue</br>
+4. To delete the replication controller</br>
+   kubectl delete -f replicationController.yml</br>
 
+## Mount Volume
+1. EmptyDir - in same pod</br>
+2. Hostpath  -in same node, but can be between different pods</br>
+3. Persistent Volume - amongst multiple nodes</br>
 
+1. EMPTYDIR</br>
+apply emptyDirMountVol.yml , go inside container 1, in the mentioned directory, create file</br>
+go inside another container, in the mentioned directory, file will be present over there</br>
+
+3. Persistent Volume -
 
    
