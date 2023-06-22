@@ -30,8 +30,12 @@ damanpod            1/1     Running            0               29s     192.168.8
 
 
 ## To set pod enviornment variables
-execute enviornmentVariable.yml
-go inside the container
-IP: echo $state
-OP: production
+execute enviornmentVariable.yml</br>
+go inside the container</br>
+IP: echo $state</br>
+OP: production</br>
+
+## PODS ##
+add labels to the existing pod
+
  
