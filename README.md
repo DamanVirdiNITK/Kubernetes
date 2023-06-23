@@ -84,6 +84,9 @@ go inside another container, in the mentioned directory, file will be present ov
 ## Services -ClusterIP &NodePort
 ## Scheduled Jobs - Cron Jobs
 ## Namespace
+
+kubectl get namespace
+We'll create pods in namespaces
 ## Resource Quota & Limit
 ## Horizontal AutoScaling
 ## Metric Server
