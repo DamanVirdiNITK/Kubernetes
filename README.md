@@ -8,7 +8,7 @@
 7. Create namespace -> namespace.yaml</br>
 8. Create pod in namespace -> singlecontainerinpod.yml</br>
 9. Set request and limit of container in pod -> podresource.yml</br>
-9. Create resource quota -> resourcequota.yml</br>
+10. Create resource quota and pods, rc via deployment-> resourcequota.yml, resourceContainerDeployment.yaml</br>
 
 ## To create the container, service, namespace etc via yaml file
 kubectl apply -f pod.yml </br>
@@ -111,7 +111,7 @@ kubectl config view | grep namespace:</br>
 ## Resource Quota & Limit
 1. create the pod and defines in requests and limits in podresource.yml and then create it
 2. Create resource quota -> resourcequota.yml</br>
-3. We create pods with 3 replicas in a deployment, each requiring 200 m cpu, toatal 600m cpu, but we have defined max limit as 400m in resourcequota.yml,  so no pod will be create, replica set will be there stating DESIRED POD =3 and CURRENT POD = 0
+3. We create pods with 3 replicas in a deployment (via resourceContainerDeployment.yml), each requiring 200 m cpu, toatal 600m cpu, but we have defined max limit as 400m in resourcequota.yml,  so no pod will be create, replica set will be there stating DESIRED POD =3 and CURRENT POD = 0
 ## Horizontal AutoScaling
 ## Metric Server
    
