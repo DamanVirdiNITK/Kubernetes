@@ -110,6 +110,8 @@ kubectl config view | grep namespace:</br>
 
 ## Resource Quota & Limit
 1. create the pod and defines in requests and limits in podresource.yml and then create it
+2. Create resource quota -> resourcequota.yml</br>
+3. We create pods with 3 replicas in a deployment, each requiring 200 m cpu, toatal 600m cpu, but we have defined max limit as 400m in resourcequota.yml,  so no pod will be create, replica set will be there stating DESIRED POD =3 and CURRENT POD = 0
 ## Horizontal AutoScaling
 ## Metric Server
    
