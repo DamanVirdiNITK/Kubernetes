@@ -9,6 +9,7 @@
 8. Create pod in namespace -> singlecontainerinpod.yml</br>
 9. Set request and limit of container in pod -> podresource.yml</br>
 10. Create resource quota and pods, rc via deployment-> resourcequota.yml, resourceContainerDeployment.yaml</br>
+11. Test horizontal Auto scaling using Metric Server -> deployhpa.yml
 
 ## To create the container, service, namespace etc via yaml file
 kubectl apply -f pod.yml </br>
@@ -119,4 +120,17 @@ Task2:</br>
 
 ## Horizontal AutoScaling
 ## Metric Server
-   
+Install metricserver
+wget -O metricserver.yml https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+vi metricserver.yml, go to line 134 and add the comment -- kubelet-insecure-tls
+kubectl apply -f metricserver.yml 
+kubectl get pods -n kube-system
+
+apply deployhpa.yaml , it is having requests and limits for the resources
+
+How AutoScale happens?
+Metric Server send data to HPA, Whenever the CPU utilization will be more than 15% , request will go to deployment to create more pod
+kubectl autoscale deployment deployments --cpu-percent=15 --min=1 --max=10
+
+Open the master node from another another tab of AWS (to increase the traffic)
+do any activity inside that , update or install any package. 
