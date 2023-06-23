@@ -116,21 +116,23 @@ Task1:</br>
 Task2:</br>
 
 1. Create resource quota -> resourcequota.yml</br>
-2. We create pods with 3 replicas in a deployment (via resourceContainerDeployment.yml), each requiring 200 m cpu, toatal 600m cpu, but we have defined max limit as 400m in resourcequota.yml,  so no pod will be create, replica set will be there stating DESIRED POD =3 and CURRENT POD = 0
+2. We create pods with 3 replicas in a deployment (via resourceContainerDeployment.yml), each requiring 200 m cpu, toatal 600m cpu, but we have defined max limit as 400m in resourcequota.yml,  so no pod will be create, replica set will be there stating DESIRED POD =3 and CURRENT POD = 0</br>
 
-## Horizontal AutoScaling
-## Metric Server
-Install metricserver
-wget -O metricserver.yml https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-vi metricserver.yml, go to line 134 and add the comment -- kubelet-insecure-tls
-kubectl apply -f metricserver.yml 
-kubectl get pods -n kube-system
+## Horizontal AutoScaling via Metric Server
+Install metricserver</br>
+wget -O metricserver.yml https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml</br>
+vi metricserver.yml, go to line 134 and add the comment -- kubelet-insecure-tls</br>
+kubectl apply -f metricserver.yml </br>
+kubectl get pods -n kube-system</br>
 
-apply deployhpa.yaml , it is having requests and limits for the resources
+apply deployhpa.yaml , it is having requests and limits for the resources</br>
 
-How AutoScale happens?
-Metric Server send data to HPA, Whenever the CPU utilization will be more than 15% , request will go to deployment to create more pod
-kubectl autoscale deployment deployments --cpu-percent=15 --min=1 --max=10
+How AutoScale happens?</br>
+Metric Server send data to HPA, Whenever the CPU utilization will be more than 15% , request will go to deployment to create more pod</br>
+kubectl autoscale deployment deployments --cpu-percent=15 --min=1 --max=10</br>
 
-Open the master node from another another tab of AWS (to increase the traffic)
-do any activity inside that , update or install any package. 
+Open the master node from another another tab of AWS (to increase the traffic)</br>
+do any activity inside that , update or install any package. </br>
+
+## Security Context
+defines priviliges for individual pods and containers
