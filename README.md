@@ -85,7 +85,7 @@ go inside another container, in the mentioned directory, file will be present ov
 ## Scheduled Jobs - Cron Jobs
 ## Namespace
 
-kubectl get namespace
+kubectl get namespace</br>
 We'll create pods in namespaces
 ## Resource Quota & Limit
 ## Horizontal AutoScaling
