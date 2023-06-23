@@ -76,6 +76,15 @@ OP: production</br>
 apply emptyDirMountVol.yml , go inside container 1, in the mentioned directory, create file</br>
 go inside another container, in the mentioned directory, file will be present over there</br>
 
-3. Persistent Volume -
+3. Persistent Volume - pending, will update soon
 
+## Deployment
+## Rollback
+## Networking
+## Services -ClusterIP &NodePort
+## Scheduled Jobs - Cron Jobs
+## Namespace
+## Resource Quota & Limit
+## Horizontal AutoScaling
+## Metric Server
    
