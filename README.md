@@ -5,6 +5,8 @@
 4. Set labels to the pods -> label.yml </br>
 5. Set Node Selector for pods -> NodeSelector.yml</br>
 6. Create Replication Controller -> replicationController.yml</br>
+7. Create namespace -> namespace.yaml</br>
+8. Create pod in namespace -> singlecontainerinpod.yml</br>
 
 ## To create the container, service, namespace etc via yaml file
 kubectl apply -f pod.yml </br>
@@ -86,7 +88,24 @@ go inside another container, in the mentioned directory, file will be present ov
 ## Namespace
 
 kubectl get namespace</br>
-We'll create pods in namespaces
+We'll create pods in namespaces. By default pods are created in <b>default</b> namespace</br>
+
+kubectl apply -f singlecontainerinpod.yml -n <namespace></br>
+
+kubectl get pods ---> No o/p beacuse it'll show the pods in default namespace only</br>
+kubectl get pods -n <namespace> </br>
+
+kubectl delete -f singlecontainerinpod.yml -> It will not delete the pod, because it won't be able to find the pod in default namespace</br>
+kubectl delete -f singlecontainerinpod.yml -n <namespace></br>
+
+Set dev as default namespace</br>, set any namespace as default</br>
+kubectl config set-context $(kubectl config current-context) --namespace=dev</br>
+Now, kubectl get pods -> It'll show the pods of this namespace only</br>
+
+To check which is our default namespace</br>
+kubectl config view | grep namespace:</br>
+
+
 ## Resource Quota & Limit
 ## Horizontal AutoScaling
 ## Metric Server
