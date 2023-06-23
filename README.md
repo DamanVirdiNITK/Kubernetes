@@ -7,6 +7,7 @@
 6. Create Replication Controller -> replicationController.yml</br>
 7. Create namespace -> namespace.yaml</br>
 8. Create pod in namespace -> singlecontainerinpod.yml</br>
+9. Create resource quota -> resourcequota.yml</br>
 
 ## To create the container, service, namespace etc via yaml file
 kubectl apply -f pod.yml </br>
