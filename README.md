@@ -20,7 +20,7 @@ kubectl get pods</br>
 NAME                READY   STATUS             RESTARTS        AGE</br>
 damanpod            1/1     Running            0               11s
 
-## To view more info about pods
+## To view more info about pods0
 kubectl get pods -o wide</br>
 NAME                READY   STATUS             RESTARTS        AGE     IP              NODE               NOMINATED NODE   READINESS GATES</br>
 damanpod            1/1     Running            0               29s     192.168.85.28   ip-172-31-17-220   <none>           <none></br>
@@ -76,7 +76,7 @@ OP: production</br>
 1. EmptyDir - in same pod</br>
 2. Hostpath  -in same node, but can be between different pods</br>
 3. Persistent Volume - amongst multiple nodes</br>
-
+0
 1. EMPTYDIR</br>
 apply emptyDirMountVol.yml , go inside container 1, in the mentioned directory, create file</br>
 go inside another container, in the mentioned directory, file will be present over there</br>
